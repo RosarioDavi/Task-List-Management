@@ -15,11 +15,17 @@
                     <th> Number of tasks </th>
                 </tr>
             </thead>
-            {%for project in projects%}
             <tr>
+            
             <tbody>
-                <td> {{project.name}} </td>
-            </tr>
+            {%for project in projects%}
+            <tr> 
+                <tr>
+                    <td><a href = "{% url 'show_project' project.pk %}">{{project.name}}</a>
+                    </td>
+                    <td>{{ project.tasks.all | length }}</td>
+                    
+                </tr>
             {%endfor%}
             </tbody>
             
