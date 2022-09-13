@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "markdownify.apps.MarkdownifyConfig",
     "accounts.apps.AccountsConfig",
     "projects.apps.ProjectsConfig",
     "tasks.apps.TasksConfig",
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 ]
 
+MARKDOWNIFY = {"default": {"BLEACH": False}}
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
