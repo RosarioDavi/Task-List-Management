@@ -6,7 +6,7 @@
             {% if projects|length == 0 %}
                 <p>You are not assigned to any projects</p>
             {% endif %}
-            <p>
+            <p class = "create">
                 <a href= "{% url "create_project" %}">Create a new project</a>
             </p>
             <table>

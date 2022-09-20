@@ -10,11 +10,14 @@ class TaskCreateView(LoginRequiredMixin, CreateView):
     template_name = "tasks/create.html"
     fields = ["name", "start_date", "due_date", "project", "assignee"]
 
-    def form_valid(self, form):
-        item = form.save(commit=False)
-        item.assignee = self.request.user
-        item.save()
-        return redirect("projects/detail.html")
+    # def form_valid(self, form):
+    # item = form.save(commit=False)
+    # item.assignee = self.request.user
+    # item.save()
+    # return redirect("projects/detail.html")
+
+    def get_success_url(self):
+        return reverse_lazy("show_project", args=[self.object.project.pk])
 
 
 class TaskListView(LoginRequiredMixin, ListView):
